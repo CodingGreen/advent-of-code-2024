@@ -5,9 +5,7 @@ const {
   split,
   map,
   transpose,
-  path,
   add,
-  __,
   allPass,
   evolve,
   identity,
@@ -16,15 +14,10 @@ const {
   addIndex,
   count,
   sum,
-  all,
-  gte,
-  ifElse,
-  always,
 } = require('ramda');
+const { positivePath } = require('./utils');
 
 const parseWordSearch = pipe(trim, split('\n'), map(splitEvery(1)), transpose);
-
-const positivePath = ifElse(all(gte(__, 0)), path, always(always(undefined)));
 
 const checkDirection =
   (directionConfig) =>
